@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Challenge Me!</title>
+</head>
+<body>
+    <h1>Welcome To Challenge Me!</h1>
+    <table>
+        {% for challenge in challenges %}
+        <tr>
+            {% if challenge.done %}
+            <td><strike>{{ challenge.game }}</strike></td>
+            {% else %}
+            <td>{{ challenge.name }}</td>
+            {% endif %}
+            
+        </tr>
+        {% empty %}
+        <h3>No challenges posted today</h3>
+        {% endfor %}
+        
+    </table>
+    <a href="post">Post a Challenge</a>
+</body>
+</html>

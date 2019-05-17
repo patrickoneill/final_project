@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Post Challenge</title>
+</head>
+<body>
+    <h1>Want to challenge me</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label for="challenge_id">Challenge Me</label>
+        <input type="text" id="challenge_id" name="name" placeholder="What game?"/>
+        <br/>
+        <label for="challenge_id">Challenge Me</label>
+        <input type="text" id="challenge_id" name="game" placeholder="What's the challenge?"/>
+        <br/>
+        <label for="challenge_done">Challenge Me</label>
+        <input type="checkbox" id="challenge_done" name="done"/>
+        <br/>
+        <button type="submit">Post</button>
+    </form>
+</body>
+</html>
