@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,8 @@ SECRET_KEY = '7$rr90^7ldrc_-4+_8_7yri)!bxz$irt$d3!jgg1649762glhn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['full-stack-milestone-patrickoneill.c9users.io']
+ALLOWED_HOSTS = ['full-stack-milestone-patrickoneill.c9users.io',
+                'challenge-me-paddy.herokuapp.com']
 
 
 # Application definition
@@ -74,12 +76,14 @@ WSGI_APPLICATION = 'challenge_me.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+DATABASES = {'default': dj_database_url.parse('postgres://fustypqdlvmlvq:235e0f0c1ed3b20ff43e688d672eb4fdfd2127efe789c3ed000cfc130b3e7fbf@ec2-79-125-4-72.eu-west-1.compute.amazonaws.com:5432/drvlb5eubbj85')}
 
 
 # Password validation

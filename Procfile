@@ -1,1 +1,1 @@
-web: gunicorn challenge-me-paddy.wsgi:application
+web: gunicorn challenge_me.wsgi:application

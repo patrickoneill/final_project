@@ -12,11 +12,10 @@
         {% for challenge in challenges %}
         <tr>
             {% if challenge.done %}
-            <td><strike>{{ challenge.game }}</strike></td>
+            <td><strike>{{ challenge.name }}</strike></td>
             {% else %}
             <td>{{ challenge.name }}</td>
             {% endif %}
-            
         </tr>
         {% empty %}
         <h3>No challenges posted today</h3>
