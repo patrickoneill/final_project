@@ -26,9 +26,12 @@ SECRET_KEY = '7$rr90^7ldrc_-4+_8_7yri)!bxz$irt$d3!jgg1649762glhn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['full-stack-milestone-patrickoneill.c9users.io',
-                'challenge-me-paddy.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'),
+                os.environ.get('HOSTNAME')]
 
+host = os.environ.get('SITE_NAME')
+if host:
+    ALLOWED_HOSTS.append(host)
 
 # Application definition
 
@@ -83,7 +86,7 @@ WSGI_APPLICATION = 'challenge_me.wsgi.application'
 #     }
 # }
 
-DATABASES = {'default': dj_database_url.parse('postgres://fustypqdlvmlvq:235e0f0c1ed3b20ff43e688d672eb4fdfd2127efe789c3ed000cfc130b3e7fbf@ec2-79-125-4-72.eu-west-1.compute.amazonaws.com:5432/drvlb5eubbj85')}
+DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 
 # Password validation
